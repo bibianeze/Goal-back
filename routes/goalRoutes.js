@@ -17,6 +17,9 @@ router.post("/", newGoal);
 // Get all goals (ongoing and completed)
 router.get("/", allGoals);
 
+// Get a single goal by id
+router.get("/:id", getGoal);
+
 // Get ongoing goals (progress < 100)
 router.get("/ongoing", ongoingGoals);
 

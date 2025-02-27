@@ -26,6 +26,18 @@ const allGoals = async (req, res) => {
 
 //   =========================
 
+const getGoal = async (req, res) => {
+  try {
+    const goal = await Goal.findById(req.params.id);
+    if (!goal) return res.status(404).json({ error: "Goal not found" });
+    res.status(200).json(goal);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+//   =========================
+
 const ongoingGoals = async (req, res) => {
   try {
     const ongoingGoals = await Goal.find({ progress: { $lt: 100 } });
@@ -100,4 +112,5 @@ module.exports = {
   editGoals,
   editProgress,
   deletedGoal,
+  getGoal,
 };
