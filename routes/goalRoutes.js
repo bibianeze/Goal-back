@@ -9,6 +9,7 @@ const {
   ongoingGoals,
   allGoals,
   newGoal,
+  getGoal,
 } = require("../controllers/goalController");
 
 // Create a new goal
