@@ -41,8 +41,10 @@ const getGoal = async (req, res) => {
 const ongoingGoals = async (req, res) => {
   try {
     const ongoingGoals = await Goal.find({ progress: { $lt: 100 } });
+    console.log("Ongoing goals retrieved:", ongoingGoals);
     res.status(200).json(ongoingGoals);
   } catch (error) {
+    console.error("Error in ongoingGoals endpoint:", error);
     res.status(500).json({ error: error.message });
   }
 };
